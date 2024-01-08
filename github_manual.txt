@@ -1,14 +1,17 @@
 git 명령어 총 정리집 :
+- https://www.youtube.com/watch?v=Z9dvM7qgN9s&t=333s
 - https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K
 - https://choiiis.github.io/git/how-to-commit-local-change/
 - https://wordbe.tistory.com/entry/Git-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EC%A0%95%EB%A6%ACcommit-push-pull-request-merge-%EB%93%B1
 
+<.git>
 Git에서 커밋된 내용들은 로컬 저장소의 `.git` 디렉토리에 저장됩니다.
 이 디렉토리는 Git 저장소를 초기화(init)할 때 생성되며, 저장소의 모든 버전 관리 정보와 메타데이터를 포함합니다. 
 `.git` 디렉토리는 보통 저장소의 루트 디렉토리에 숨겨진 상태로 존재합니다.
 
 `.git` 디렉토리 안에는 여러 서브 디렉토리와 파일들이 있는데, 여기에는 다음과 같은 정보들이 저장됩니다:
-1. **objects/**: 모든 데이터(커밋, 트리, 블롭 등)가 저장되는 곳입니다. 이 디렉토리는 Git의 핵심 데이터베이스 역할을 하며, 모든 파일과 디렉토리의 스냅샷을 포함합니다.
+1. **objects/**: 모든 데이터(커밋, 트리, 블롭 등)가 저장되는 곳입니다. 
+   이 디렉토리는 Git의 핵심 데이터베이스 역할을 하며, 모든 파일과 디렉토리의 스냅샷을 포함합니다.
 2. **refs/**: 브랜치와 태그 같은 참조들을 저장합니다.
 3. **HEAD**: 현재 체크아웃된 커밋을 가리킵니다.
 4. **config**: 로컬 저장소의 설정을 포함합니다.
@@ -35,7 +38,13 @@ git push -u origin main
 (Git 설정 방법)
 git config --global user.name "your name"
 git config --global user.email "your_email"
-git config --list
+git config --global core.autocrlf true (windows에서는 true, mac사용자는 input)
+                                       (windows에서는 : \r\n을 Github에 적을때는 \n으로 저장)
+                                       (windows에서는 : \n을 Github에 내려받을때는 \r\n으로 저장)
+
+git config user.name   (설정확인)
+git config user.email  (설정확인)
+git config --list      (설정확인)
 
 <example @Git-bash @최종책임자pc>
 (Github와 연결하고 파일을 올리는 방법)
@@ -83,6 +92,17 @@ git pull origin master // pull 하기 전에는 pc의 기존 코드를 반드시
 git checkout 브랜치이름
 
 <이외 편리한 명령>
+git --version (git 버전 확인)
+
+git config --list (git config 확인)
+git config --global -e (설정치를 에디터모드로 열어보기, 에디터 모드 탈출하려면 shist+:, q! 엔터)
+
+git config --global core.editor "code"
+git config --global -e 
+
+git config --global core.editor "code --wait"
+git config --global -e 
+
 git reset(staging 취소)
 git reset --hard (working directory까지도 변경전 상태로 되돌림, 즉, 변경한 내용이 소멸되므로 주의)
 
