@@ -14,12 +14,14 @@ git remote add origin https://github.com/airobotland/github_usage.git
 git branch -M main
 git push -u origin main
 
-<example @Git-bash @pc>
+<example @Git-bash @최종책임자pc>
+(Git 설정 방법)
 git config --global user.name "your name"
 git config --global user.email "your_email"
 git config --list
 
-<example @working_directory @pc>
+<example @Git-bash @최종책임자pc>
+(Github와 연결하고 파일을 올리는 방법)
 git init
 git add .
 git status (상태확인)
@@ -28,6 +30,28 @@ git remote add origin https://github.com/airobotland/github_usage.git (Github re
 git remote -v (잘 연결되었는지 확인 --> 내가 연결한 주소값이 잘 뜨면 성공)
 git push origin master (Github로 올리기, master 자리에는 branch이름이 들어가면 됨. branch이름이 main라하면 git push origin main 이라고 써야함)
 
+(Github에 계속 업데이트 하는 방법)
 git add .
 git commit -m "second commit"
 git push origin master
+
+<example @Git-bash @Team작업자pc>
+git clone 주소 폴더이름 (https://github.com/airobotland/github_usage.git, 새로만들 폴더이름)
+// 주소는 깃허브에서 들고와야함
+// 폴더이름은 선택사항이다 (즉 없어도됨).
+// 폴더이름을 줄경우에는 그 폴더가 새로 생성이 되면서 그 안에 코드들이 다운로드가 되고, 
+// 폴더이름을 안줄경우엔 깃허브 프로젝트 이름으로 폴더가 자동으로 생기고 그안에 코드들이 다운로드된다.
+git checkout -b 브랜치이름 (git checkout -b freshman) // 새로운 브랜치가 생겼다. 마스터 브랜치를 사용하지 않고 freshman 브랜치를 사용한다.
+
+(Team작업자는 freshman branch롤 파일을 올린다.)
+git add .
+git commit -m "first commit"
+pit push origin 브랜치이름 // 이제 github에는 freshman이 pull request를 요청했다는 표시가 뜬다
+// 최종 책임자는 해당 branch의 코드를 확인하고, 이상없으면 merge를 눌러 코드를 통합한다.
+
+<example @Git-bash @최종책임자pc>
+(마스터 브랜티에서 소스 가져와서 나의 pc 코드와 결합하기)
+git pull origin master // pull 하기 전에는 pc의 기존 코드를 반다시 commit을 먼저 해놔야 한다. 그래야 문제 생기면 돌아가지
+
+(브랜치끼리 이동하는 방법 : 다른 브랜치로 이동하려면)
+git checkout 브랜치이름
