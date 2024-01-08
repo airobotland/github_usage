@@ -1,0 +1,33 @@
+<create a new repository on the command line>
+echo "# github_usage" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/airobotland/github_usage.git
+git push -u origin main
+
+<push an existing repository from the command line>
+git remote add origin https://github.com/airobotland/github_usage.git
+git branch -M main
+git push -u origin main
+
+git 명령어 총 정리집 : https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K
+
+<example @Git-bash @pc>
+git config --global user.name "your name"
+git config --global user.email "your_email"
+git config --list
+
+<example @working_directory @pc>
+git init
+git add .
+git status (상태확인)
+git commit -m "first commit" (-m은 메세지)
+git remote add origin https://github.com/airobotland/github_usage.git (Github repository랑 내 로컬 프로젝트랑 연결)
+git remote -v (잘 연결되었는지 확인 --> 내가 연결한 주소값이 잘 뜨면 성공)
+git push origin master (Github로 올리기, master 자리에는 branch이름이 들어가면 됨. branch이름이 main라하면 git push origin main 이라고 써야함)
+
+git add .
+git commit -m "second commit"
+git push origin master
