@@ -1,3 +1,5 @@
+git 명령어 총 정리집 : https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K
+
 <create a new repository on the command line>
 echo "# github_usage" >> README.md
 git init
@@ -11,8 +13,6 @@ git push -u origin main
 git remote add origin https://github.com/airobotland/github_usage.git
 git branch -M main
 git push -u origin main
-
-git 명령어 총 정리집 : https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K
 
 <example @Git-bash @pc>
 git config --global user.name "your name"
