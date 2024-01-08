@@ -1,4 +1,21 @@
-git 명령어 총 정리집 : https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K
+git 명령어 총 정리집 :
+- https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K
+- https://choiiis.github.io/git/how-to-commit-local-change/
+- https://wordbe.tistory.com/entry/Git-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EC%A0%95%EB%A6%ACcommit-push-pull-request-merge-%EB%93%B1
+
+Git에서 커밋된 내용들은 로컬 저장소의 `.git` 디렉토리에 저장됩니다.
+이 디렉토리는 Git 저장소를 초기화(init)할 때 생성되며, 저장소의 모든 버전 관리 정보와 메타데이터를 포함합니다. 
+`.git` 디렉토리는 보통 저장소의 루트 디렉토리에 숨겨진 상태로 존재합니다.
+
+`.git` 디렉토리 안에는 여러 서브 디렉토리와 파일들이 있는데, 여기에는 다음과 같은 정보들이 저장됩니다:
+1. **objects/**: 모든 데이터(커밋, 트리, 블롭 등)가 저장되는 곳입니다. 이 디렉토리는 Git의 핵심 데이터베이스 역할을 하며, 모든 파일과 디렉토리의 스냅샷을 포함합니다.
+2. **refs/**: 브랜치와 태그 같은 참조들을 저장합니다.
+3. **HEAD**: 현재 체크아웃된 커밋을 가리킵니다.
+4. **config**: 로컬 저장소의 설정을 포함합니다.
+5. **index**: 준비 영역(Staging Area)의 상태를 나타내는 파일로, 다음 커밋에 포함될 변경사항들의 목록을 담고 있습니다.
+
+이 외에도 몇 가지 서브 디렉토리와 파일들이 있지만, 대부분의 경우에는 위에 언급된 것들이 핵심적인 역할을 합니다. 
+`.git` 디렉토리는 Git의 모든 데이터와 히스토리를 관리하므로, 이 디렉토리를 삭제하면 저장소의 모든 버전 관리 기록을 잃게 됩니다.
 
 <create a new repository on the command line>
 echo "# github_usage" >> README.md
@@ -22,10 +39,18 @@ git config --list
 
 <example @Git-bash @최종책임자pc>
 (Github와 연결하고 파일을 올리는 방법)
-git init
-git add .
-git status (상태확인)
-git commit -m "first commit" (-m은 메세지)
+git init   (git repogitory 만들기, git init 디렉토리명--> 현재디랙토리아래에 새로운이름의 Git repository를 만든다)
+           (git이 해당 디렉토리를 감시하기 시작한다)
+git add .  (현재 디렉토리에 있는 업데이트된 파일 전부를 스테이징 영역으로 추가, git add -A 하면수정된 파일 전부를 추가)
+           (모든 파일의 변경 이력을 남기고 싶다는 뜻이다)
+           (특정 파일만 스테이징 영역으로 추가하고 싶으면, "git add 파일명 파일명 파일명" 하면 된다.)
+git status (add 내역을 확인, 어떤 파일이 staging되었고, 어떤 파일이 staging되지 않았는지 보여준다)
+           (만일 git add를 안해주고 git status하면 "not commits yet", "nothing added to commit but untracted files present"라고 뜬다)
+git commit -m "first commit" (-m은 메세지) (Repository에 commit)
+           (저장소의 변경내역을 기록한다)
+           (git add, git commit를 하면, 현재의 파일의 최종 상태를 기록한 것이다)
+           (git log 를 실행하면, 현재까지의 commit history를 볼 수 있다)
+           (git log --oneline 을 실행하면, 현재까지의 commit history를, 한 줄로 볼 수 있다.)
 git remote add origin https://github.com/airobotland/github_usage.git (Github repository랑 내 로컬 프로젝트랑 연결)
 git remote -v (잘 연결되었는지 확인 --> 내가 연결한 주소값이 잘 뜨면 성공)
 git push origin master (Github로 올리기, master 자리에는 branch이름이 들어가면 됨. branch이름이 main라하면 git push origin main 이라고 써야함)
@@ -50,8 +75,23 @@ pit push origin 브랜치이름 // 이제 github에는 freshman이 pull request�
 // 최종 책임자는 해당 branch의 코드를 확인하고, 이상없으면 merge를 눌러 코드를 통합한다.
 
 <example @Git-bash @최종책임자pc>
-(마스터 브랜티에서 소스 가져와서 나의 pc 코드와 결합하기)
-git pull origin master // pull 하기 전에는 pc의 기존 코드를 반다시 commit을 먼저 해놔야 한다. 그래야 문제 생기면 돌아가지
+(마스터 브랜치에서 소스 가져와서 나의 pc 코드와 결합하기)
+git pull origin master // pull 하기 전에는 pc의 기존 코드를 반드시 commit을 먼저 해놔야 한다
+
 
 (브랜치끼리 이동하는 방법 : 다른 브랜치로 이동하려면)
 git checkout 브랜치이름
+
+<이외 편리한 명령>
+git reset(staging 취소)
+git reset --hard (working directory까지도 변경전 상태로 되돌림, 즉, 변경한 내용이 소멸되므로 주의)
+
+git branch (branch 확인)
+git branch 브랜치명 (branch 생성)
+git checkout 브랜치명 (기존 branch에서 새로운 branch로 전환)
+git push origin 브랜치명
+
+git log --oneline (현재까지의 commit history를, 한 줄로 볼 수 있다.)
+git log --all --oneline
+
+
