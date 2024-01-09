@@ -84,20 +84,20 @@ git clone 주소 폴더이름 (https://github.com/airobotland/github_usage.git, 
            (폴더이름을 안줄경우엔 깃허브 프로젝트 이름으로 폴더가 자동으로 생기고 그안에 코드들이 다운로드된다)
            (git clone을 통해 원격파일을 복사해오면, origin 에는 기본적으로 클론해온 리모트 URL이 저장되있습니다)
 
+// Team 작업자는 새로운 브랜치를 만들어서, 거기에 파일을 올려야 한다.
 git checkout -b 브랜치이름 (git checkout -b freshman) // 새로운 브랜치가 생겼다. 마스터 브랜치를 사용하지 않고 freshman 브랜치를 사용한다.
-(Team작업자는 freshman branch롤 파일을 올린다.)
 git add .
 git commit -m "first commit"
 pit push origin 브랜치이름 // 이제 github에는 freshman이 pull request를 요청했다는 표시가 뜬다
-// 최종 책임자는 해당 branch의 코드를 확인하고, 이상없으면 merge를 눌러 코드를 통합한다.
+// 이제, Github을 관리하는 최종 책임자는 해당 branch의 코드를 확인하고, 이상없으면 merge를 눌러 코드를 통합한다.
+// 그럼 Master branch의 내용이 수정된다.
 
 <example @Git-bash @최종책임자pc>
-(마스터 브랜치에서 소스 가져와서 나의 pc 코드와 결합하기)
+// master branch의 내용이 수정되면, 모든 협업자들은 마스터 브랜치에서 소스 가져와서 자신의 pc 코드와 결합해야 한다)
 git pull origin master // pull 하기 전에는 pc의 기존 코드를 반드시 commit을 먼저 해놔야 한다
 
 
-(브랜치끼리 이동하는 방법 : 다른 브랜치로 이동하려면)
-git checkout 브랜치이름
+git checkout 브랜치이름 (브랜치끼리 이동하는 방법 : 다른 브랜치로 이동하려면)
 
 <이외 편리한 명령>
 git --version (git 버전 확인)
