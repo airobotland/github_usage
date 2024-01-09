@@ -1,10 +1,9 @@
-git 명령어 총 정리집 :
+<git 명령어 총 정리집>
 - https://www.youtube.com/watch?v=Z9dvM7qgN9s&t=333s
 - https://hackmd.io/@oW_dDxdsRoSpl0M64Tfg2g/ByfwpNJ-K
 - https://choiiis.github.io/git/how-to-commit-local-change/
 - https://wordbe.tistory.com/entry/Git-%EC%82%AC%EC%9A%A9-%EB%B0%A9%EB%B2%95-%EC%A0%95%EB%A6%ACcommit-push-pull-request-merge-%EB%93%B1
 - https://github.com/KennethanCeyer/tutorial-git
-
 
 <.git>
 Git에서 커밋된 내용들은 로컬 저장소의 `.git` 디렉토리에 저장됩니다.
@@ -95,7 +94,6 @@ pit push origin 브랜치이름 // 이제 github에는 freshman이 pull request�
 <example @Git-bash @최종책임자pc>
 // master branch의 내용이 수정되면, 모든 협업자들은 마스터 브랜치에서 소스 가져와서 자신의 pc 코드와 결합해야 한다)
 git pull origin master // pull 하기 전에는 pc의 기존 코드를 반드시 commit을 먼저 해놔야 한다
-
 
 git checkout 브랜치이름 (브랜치끼리 이동하는 방법 : 다른 브랜치로 이동하려면)
 
