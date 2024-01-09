@@ -65,6 +65,9 @@ git commit -m "first commit" (-m은 메세지) (Repository에 commit)
            (git log --oneline 을 실행하면, 현재까지의 commit history를, 한 줄로 볼 수 있다.)
 git remote add origin https://github.com/airobotland/github_usage.git (Github repository랑 내 로컬 프로젝트랑 연결)
            (git 리모트란 git을 원격저장소에 저장하는 앤드포인트를 의미합니다)
+           (git clone을 통해 원격파일을 복사해오면, origin 에는 기본적으로 클론해온 리모트 URL이 저장되있습니다)
+           (따라서 git clone을 통해 원격파일을 복사해오면, git remote 명령이 필요없습니다.)
+
 git remote -v (잘 연결되었는지 확인 --> 내가 연결한 주소값이 잘 뜨면 성공)
 git push origin master (Github로 올리기, master 자리에는 branch이름이 들어가면 됨. branch이름이 main라하면 git push origin main 이라고 써야함)
 
